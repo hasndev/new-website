@@ -10,11 +10,11 @@
 
   <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://karrar-maysan.dev/">
+  <meta property="og:url" content="https://gdgbmaysan.web.app/">
   <meta property="og:title" content="كرّار الميساني | مطوّر ويب وتطبيقات سريعة - ميسان">
   <meta property="og:description" content="الموقع الشخصي للمطوّر كرّار الميساني من محافظة ميسان، العراق. بناء مواقع وتطبيقات ويب سريعة، متجاوبة، وبكود نقي عالي الجودة بهوية زرقاء أنيقة.">
-  <meta property="og:image" content="og-image.png">
-  <meta property="og:image:secure_url" content="og-image.png">
+  <meta property="og:image" content="https://gdgbmaysan.web.app/og-image.png">
+  <meta property="og:image:secure_url" content="https://gdgbmaysan.web.app/og-image.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -24,10 +24,10 @@
 
   <!-- Twitter Card Meta Tags -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:url" content="https://karrar-maysan.dev/">
+  <meta name="twitter:url" content="https://gdgbmaysan.web.app/">
   <meta name="twitter:title" content="كرّار الميساني | مطوّر ويب وتطبيقات سريعة - ميسان">
   <meta name="twitter:description" content="الموقع الشخصي للمطوّر كرّار الميساني من محافظة ميسان، العراق. بناء مواقع وتطبيقات ويب سريعة، متجاوبة، وبكود نقي عالي الجودة.">
-  <meta name="twitter:image" content="og-image.png">
+  <meta name="twitter:image" content="https://gdgbmaysan.web.app/og-image.png">
   <meta name="twitter:image:alt" content="الملف التعريفي للمطوّر كرّار الميساني - ميسان">
 
   <!-- Favicon -->
@@ -40,7 +40,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- منع وميض المظهر (FOUC Prevention) والتحميل الفوري للوضع الداكن -->
+  <!-- منع وميض المظهر (FOUC Prevention) وتحديث الروابط ديناميكياً بحسب النطاق الفعلي -->
   <script>
     (function() {
       try {
@@ -48,6 +48,15 @@
                     localStorage.getItem('theme') ||
                     (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', theme);
+
+        // تحديث روابط المشاركة تلقائياً للنطاق الحالي الفعلي عند زيارة أي دومين مخصص
+        if (window.location.origin && window.location.origin.startsWith('http')) {
+          var currentUrl = window.location.origin + window.location.pathname;
+          var ogUrl = document.querySelector('meta[property="og:url"]');
+          var twUrl = document.querySelector('meta[name="twitter:url"]');
+          if (ogUrl) ogUrl.setAttribute('content', currentUrl);
+          if (twUrl) twUrl.setAttribute('content', currentUrl);
+        }
       } catch (e) {}
     })();
   </script>

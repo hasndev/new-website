@@ -1,0 +1,15 @@
+# ملفات الاختبار والمعاينة
+preview-*.html
+screenshot-*.png
+shot-*.png
+
+# سجلات وملفات مؤقتة
+*.log
+*.tmp
+
+# نظام التشغيل والبيئة
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+node_modules/

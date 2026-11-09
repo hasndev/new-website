@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="الموقع الشخصي للمطوّر كرّار الميساني - مطوّر ويب متكامل وتطبيقات سريعة من محافظة ميسان، العراق. حلول رقمية وتجارب ويب استثنائية باللغة العربية بهوية حديثة وأداء فائق.">
+  <meta name="keywords" content="مطور ويب, ميسان, العمارة, العراق, تصميم مواقع, Front-End, Full-Stack, JavaScript, HTML, CSS, GDG">
+  <meta name="author" content="كرّار الميساني">
+  <meta name="theme-color" content="#4285F4">
+
+  <!-- Open Graph / Facebook / WhatsApp Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://karrar-maysan.dev/">
+  <meta property="og:title" content="كرّار الميساني | مطوّر ويب وتطبيقات سريعة - ميسان">
+  <meta property="og:description" content="الموقع الشخصي للمطوّر كرّار الميساني من محافظة ميسان، العراق. بناء مواقع وتطبيقات ويب سريعة، متجاوبة، وبكود نقي عالي الجودة بهوية زرقاء أنيقة.">
+  <meta property="og:image" content="og-image.png">
+  <meta property="og:image:secure_url" content="og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="الملف التعريفي للمطوّر كرّار الميساني - ميسان">
+  <meta property="og:locale" content="ar_IQ">
+  <meta property="og:site_name" content="كرّار الميساني - مطوّر ويب">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://karrar-maysan.dev/">
+  <meta name="twitter:title" content="كرّار الميساني | مطوّر ويب وتطبيقات سريعة - ميسان">
+  <meta name="twitter:description" content="الموقع الشخصي للمطوّر كرّار الميساني من محافظة ميسان، العراق. بناء مواقع وتطبيقات ويب سريعة، متجاوبة، وبكود نقي عالي الجودة.">
+  <meta name="twitter:image" content="og-image.png">
+  <meta name="twitter:image:alt" content="الملف التعريفي للمطوّر كرّار الميساني - ميسان">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌾</text></svg>">
+  
+  <title>كرّار الميساني | مطوّر ويب ومصمم تجارب رقمية - ميسان</title>
+
+  <!-- Google Fonts: Tajawal -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+
+  <!-- منع وميض المظهر (FOUC Prevention) والتحميل الفوري للوضع الداكن -->
+  <script>
+    (function() {
+      try {
+        var theme = new URLSearchParams(window.location.search).get('theme') ||
+                    localStorage.getItem('theme') ||
+                    (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+        document.documentElement.setAttribute('data-theme', theme);
+      } catch (e) {}
+    })();
+  </script>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- خلفية تفاعلية بصرية -->
+  <div class="ambient-glow" aria-hidden="true"></div>
+
+  <!-- ترويسة الموقع والتنقل -->
+  <header class="site-header" id="header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo" aria-label="الصفحة الرئيسية">
+        <span class="logo-icon">🌾</span>
+        <span class="logo-text">كرّار<span class="logo-highlight">.ميسان</span></span>
+      </a>
+
+      <!-- القائمة الرئيسية -->
+      <nav class="nav-menu" id="navMenu" aria-label="التنقل الرئيسي">
+        <ul class="nav-list">
+          <li class="nav-item"><a href="#hero" class="nav-link active">الرئيسية</a></li>
+          <li class="nav-item"><a href="#about" class="nav-link">نبذة عني</a></li>
+          <li class="nav-item"><a href="#skills" class="nav-link">المهارات</a></li>
+          <li class="nav-item"><a href="#projects" class="nav-link">أعمالي</a></li>
+          <li class="nav-item"><a href="#contact" class="nav-link">تواصل معي</a></li>
+        </ul>
+      </nav>
+
+      <!-- أدوات التحكم: تبديل الوضع الداكن وزر القائمة للموبايل -->
+      <div class="nav-actions">
+        <button id="themeToggle" class="theme-toggle" aria-label="تبديل الوضع الداكن" title="تبديل المظهر">
+          <!-- أيقونة الشمس (الوضع الفاتح) -->
+          <svg class="sun-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <line x1="12" y1="1" x2="12" y2="3"></line>
+            <line x1="12" y1="21" x2="12" y2="23"></line>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+            <line x1="1" y1="12" x2="3" y2="12"></line>
+            <line x1="21" y1="12" x2="23" y2="12"></line>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+          </svg>
+          <!-- أيقونة القمر (الوضع الداكن) -->
+          <svg class="moon-icon" viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+          </svg>
+        </button>
+
+        <button id="mobileMenuBtn" class="mobile-toggle" aria-label="فتح القائمة" aria-expanded="false" aria-controls="navMenu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- قسم البداية (Hero Section) -->
+    <section class="hero-section" id="hero">
+      <div class="container hero-container">
+        <div class="hero-content">
+          <div class="hero-badge">
+            <span class="pulse-dot"></span>
+            <span>متاح لاستقبال المشاريع الجديدة والعمل الحر</span>
+          </div>
+          <h1 class="hero-title">
+            مرحباً، أنا <span class="text-gradient">كرّار الميساني</span><br>
+            مطوّر ويب يصنع حلولاً رقمية استثنائية
+          </h1>
+          <p class="hero-subtitle">
+            من قلب <strong>ميسان</strong> العريقة، أجمع بين شغف الكود النقي والإتقان البصري لأبني مواقع وتطبيقات ويب سريعة، متجاوبة، وتترك أثراً حقيقياً في تجربة المستخدم.
+          </p>
+
+          <div class="hero-cta-group">
+            <a href="#projects" class="btn btn-primary">
+              <span>استكشف المشاريع</span>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-outline">
+              <span>تواصل معي</span>
+            </a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-item">
+              <span class="highlight-num">+4</span>
+              <span class="highlight-lbl">سنوات خبرة</span>
+            </div>
+            <div class="highlight-divider"></div>
+            <div class="highlight-item">
+              <span class="highlight-num">+25</span>
+              <span class="highlight-lbl">مشروعاً ناجحاً</span>
+            </div>
+            <div class="highlight-divider"></div>
+            <div class="highlight-item">
+              <span class="highlight-num">100%</span>
+              <span class="highlight-lbl">التزام بالجودة والأداء</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="avatar-wrapper">
+            <div class="avatar-card">
+              <div class="avatar-glow"></div>
+              <div class="avatar-inner">
+                <!-- رسم رمزي تقني وتراثي لمطور من ميسان -->
+                <svg class="avatar-art" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <circle cx="100" cy="100" r="95" stroke="url(#paint_border)" stroke-width="4" stroke-dasharray="6 6"/>
+                  <rect x="35" y="35" width="130" height="130" rx="24" fill="url(#paint_avatar_bg)"/>
+                  <!-- رمز شاشة كود وأهوار -->
+                  <path d="M55 70L80 95L55 120" stroke="#38bdf8" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/>
+                  <path d="M95 120H135" stroke="#eab308" stroke-width="6" stroke-linecap="round"/>
+                  <!-- أيقونة قارب المشحوف/النخلة التراثية بأسلوب رقمي -->
+                  <path d="M70 145C90 152 110 152 130 145" stroke="#34d399" stroke-width="4" stroke-linecap="round"/>
+                  <circle cx="140" cy="65" r="7" fill="#f59e0b"/>
+                  <defs>
+                    <linearGradient id="paint_border" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#38bdf8"/>
+                      <stop offset="0.5" stop-color="#10b981"/>
+                      <stop offset="1" stop-color="#eab308"/>
+                    </linearGradient>
+                    <linearGradient id="paint_avatar_bg" x1="35" y1="35" x2="165" y2="165" gradientUnits="userSpaceOnUse">
+                      <stop stop-color="#0f172a"/>
+                      <stop offset="1" stop-color="#1e293b"/>
+                    </linearGradient>
+                  </defs>
+                </svg>
+              </div>
+
+              <!-- بطاقات تفاعلية عائمة حول الأفاتار -->
+              <div class="floating-badge badge-top-right">
+                <span class="floating-icon">📍</span>
+                <span>ميسان، العراق</span>
+              </div>
+              <div class="floating-badge badge-bottom-left">
+                <span class="floating-icon">⚡</span>
+                <span>كود نظيف وأداء فائق</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم النبذة (About Section) -->
+    <section class="section about-section" id="about">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">من أنا</span>
+          <h2 class="section-title">نبذة شخصية</h2>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text-card">
+            <h3 class="about-greeting">مهندس برمجيات ومطوّر واجهات من جنوب العراق</h3>
+            <p>
+              أنا <strong>كرّار الميساني</strong>، مطوّر ومصمم ويب أقيم في مدينة العمارة بقلب محافظة ميسان. بدأت رحلتي في عالم البرمجة مدفوعاً بفضول عميق لفهم كيفية عمل الشبكة العنكبوتية، وتحوّل هذا الشغف إلى مسيرة مهنية أكرّس فيها وقتي لتطوير حلول برمجية ترتقي بمستوى الأعمال والخدمات في مجتمعنا العربي والعالمي.
+            </p>
+            <p>
+              أركّز على بناء تجارب مستخدم عربية سلسة (RTL First) تتسم بالسرعة العالية وسهولة الاستخدام. أؤمن أن الكود الممتاز هو الذي يجمع بين الدقة الهندسية والجمال البصري دون تعقيد غير ضروري.
+            </p>
+
+            <div class="about-meta-list">
+              <div class="meta-item">
+                <span class="meta-label">الاسم:</span>
+                <span class="meta-value">كرّار الميساني</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">المدينة:</span>
+                <span class="meta-value">ميسان - العمارة 🇮🇶</span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">التخصص:</span>
+                <span class="meta-value">تطوير واجهات وتطبيقات الويب <bdi dir="ltr">(Full-Stack)</bdi></span>
+              </div>
+              <div class="meta-item">
+                <span class="meta-label">البريد الإلكتروني:</span>
+                <span class="meta-value" dir="ltr">karrar.maysan.dev@gmail.com</span>
+              </div>
+            </div>
+
+            <div class="about-actions">
+              <a href="#contact" class="btn btn-primary">ابدأ مشروعك معي</a>
+              <button class="btn btn-outline" id="cvDownloadBtn">تحميل السيرة الذاتية <bdi dir="ltr">(CV)</bdi></button>
+            </div>
+          </div>
+
+          <div class="about-features-grid">
+            <div class="feature-card">
+              <div class="feature-icon-box">💡</div>
+              <h4>تصميم مخصص للمستخدم العربي</h4>
+              <p>مراعاة كاملة لاتجاه RTL والخطوط العربية المريحة والتفاصيل الثقافية التي تحقق أفضل قابلية قراءة.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">🚀</div>
+              <h4>أداء فائق وسرعة تحميل قياسية</h4>
+              <p>كود خفيف وبدون اعتماديات زائدة يضمن درجات 95+ على أداة Google Lighthouse وتجربة فائقة السرعة.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">📱</div>
+              <h4>تجاوب كامل مع مختلف الشاشات</h4>
+              <p>تصاميم تعمل بانسيابية متناهية من أصغر شاشات الهواتف المحمولة إلى أكبر شاشات الحواسيب المكتبية.</p>
+            </div>
+
+            <div class="feature-card">
+              <div class="feature-icon-box">🛡️</div>
+              <h4>كود قياسي ومعايير حديثة</h4>
+              <p>الالتزام بأحدث معايير الويب الدلالية (Semantic HTML5) وإمكانية الوصول لجميع المستخدمين (a11y).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم المهارات (Skills Section) -->
+    <section class="section skills-section" id="skills">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">قدراتي التقنية</span>
+          <h2 class="section-title">المهارات والتقنيات</h2>
+          <p class="section-desc">مجموعة الأدوات والتقنيات التي أعتمد عليها في بناء المنتجات الرقمية الحديثة</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="skills-categories-grid">
+          <!-- مهارات الواجهات الأمامية -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">🎨</span>
+              <h3>تطوير الواجهات <bdi dir="ltr">(Front-End)</bdi></h3>
+            </div>
+            <div class="skill-bars-wrapper">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">HTML5 الدلالي وهيكلة الصفحات</span>
+                  <span class="skill-pct">98%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 98%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">CSS3 الحديث و Flexbox / CSS Grid</span>
+                  <span class="skill-pct">95%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 95%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">JavaScript النقي (ES6+ & DOM)</span>
+                  <span class="skill-pct">92%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 92%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">التصميم المتجاوب (Responsive & RTL)</span>
+                  <span class="skill-pct">96%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 96%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- مهارات الأنظمة الخلفية وقواعد البيانات -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">⚙️</span>
+              <h3>الأنظمة الخلفية وقواعد البيانات <bdi dir="ltr">(Back-End)</bdi></h3>
+            </div>
+            <div class="skill-bars-wrapper">
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">Node.js & Express</span>
+                  <span class="skill-pct">88%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 88%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">PHP الحديث & هندسة MVC</span>
+                  <span class="skill-pct">85%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">قواعد بيانات MySQL & MongoDB</span>
+                  <span class="skill-pct">86%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 86%;"></div>
+                </div>
+              </div>
+
+              <div class="skill-item">
+                <div class="skill-info">
+                  <span class="skill-name">بناء واجهات RESTful APIs والربط</span>
+                  <span class="skill-pct">90%</span>
+                </div>
+                <div class="progress-track">
+                  <div class="progress-fill" style="width: 90%;"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- مهارات إضافية وأدوات إنتاجية -->
+          <div class="skill-category-card">
+            <div class="category-header">
+              <span class="category-icon">🛠️</span>
+              <h3>الأدوات وبيئة العمل</h3>
+            </div>
+            <div class="skills-tags-cloud">
+              <span class="skill-tag">Git & GitHub</span>
+              <span class="skill-tag">Figma للتصميم</span>
+              <span class="skill-tag">تحسين محركات البحث (SEO)</span>
+              <span class="skill-tag">سهولة الوصول (a11y)</span>
+              <span class="skill-tag">أمان الويب (Web Security)</span>
+              <span class="skill-tag">بوابات الدفع (ZainCash & Qi)</span>
+              <span class="skill-tag">PWA (تطبيقات الويب التقدمية)</span>
+              <span class="skill-tag">إدارة الاستضافات و Linux CLI</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم المشاريع (3 مشاريع متكاملة وواقعية) -->
+    <section class="section projects-section" id="projects">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">معرض الأعمال</span>
+          <h2 class="section-title">مشاريع مختارة</h2>
+          <p class="section-desc">نماذج من أعمال واقعية صُممت لتقديم حلول حقيقية وتجارب رقمية متقدمة</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="projects-grid">
+          <!-- المشروع الأول: منصة هور ميسان السياحية -->
+          <article class="project-card">
+            <div class="project-banner project-banner-marshes">
+              <div class="banner-badge">مشروع سياحي وبيئي</div>
+              <!-- رسم توضيحي بيئي للأهوار -->
+              <div class="banner-illustration">
+                <svg viewBox="0 0 400 200" fill="none" class="banner-svg">
+                  <path d="M0 160C100 140 200 170 400 150V200H0V160Z" fill="#0d9488" fill-opacity="0.4"/>
+                  <path d="M0 170C120 155 260 185 400 165V200H0V170Z" fill="#047857" fill-opacity="0.7"/>
+                  <!-- قصب البردي والمشحوف -->
+                  <path d="M70 120L75 170M80 110L82 170M90 125L88 170" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+                  <path d="M280 115L285 170M295 105L292 170M305 120L300 170" stroke="#10b981" stroke-width="3" stroke-linecap="round"/>
+                  <!-- قارب المشحوف -->
+                  <path d="M160 160C180 172 220 172 245 160L250 155C215 162 190 162 155 155L160 160Z" fill="#fbbf24"/>
+                  <circle cx="340" cy="50" r="28" fill="#f59e0b" fill-opacity="0.25"/>
+                  <circle cx="340" cy="50" r="18" fill="#f59e0b"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title">منصة «هور ميسان» للسياحة البيئية</h3>
+              <p class="project-summary">
+                دليل سياحي وحجز تفاعلي متكامل لاستكشاف أهوار ميسان وتراثها الإنساني. تتيح للمسافرين والباحثين حجز جولات القوارب التقليدية (المشاحيف)، استكشاف خرائط الأهوار، والتعرف على التنوع البيولوجي الفريد.
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill">HTML5 الدلالي</span>
+                <span class="tech-pill">CSS Grid المتجاوب</span>
+                <span class="tech-pill">JavaScript ES6</span>
+                <span class="tech-pill">خريطة تفاعلية</span>
+              </div>
+
+              <div class="project-links">
+                <button class="btn-project-action" onclick="openDemoModal('منصة هور ميسان للسياحة البيئية', 'تم بناء المنصة بسرعة فائقة ودون أطر عمل ثقيلة، لتوفير تجربة فورية وسلسة حتى مع الاتصالات الضعيفة في بيئة الأهوار. تتضمن المنصة نظام حجز للمرشدين المحليين وقوارب المشحوف، مع واجهة عربية أصيلة ومعرض صور عالي الدقة.')">
+                  <span>تفاصيل المشروع</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                </button>
+                <a href="#contact" class="btn-project-link">
+                  <span>طلب نظام مماثل</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- المشروع الثاني: سوق دجلة الإلكتروني -->
+          <article class="project-card">
+            <div class="project-banner project-banner-ecommerce">
+              <div class="banner-badge">تجارة إلكترونية ودفع محلي</div>
+              <!-- رسم توضيحي للمتجر الذكي -->
+              <div class="banner-illustration">
+                <svg viewBox="0 0 400 200" fill="none" class="banner-svg">
+                  <rect x="70" y="40" width="260" height="130" rx="12" fill="#1e293b" stroke="#38bdf8" stroke-width="2"/>
+                  <!-- عربة التسوق ورمز المنتجات -->
+                  <circle cx="160" cy="110" r="28" fill="#0284c7" fill-opacity="0.3"/>
+                  <path d="M145 95H150L156 115H172L177 100H152" stroke="#38bdf8" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="158" cy="120" r="3" fill="#38bdf8"/>
+                  <circle cx="170" cy="120" r="3" fill="#38bdf8"/>
+                  <!-- بطاقة الدفع زين كاش وسوبر كي -->
+                  <rect x="210" y="80" width="80" height="50" rx="6" fill="#0f172a" stroke="#10b981" stroke-width="2"/>
+                  <line x1="210" y1="94" x2="290" y2="94" stroke="#10b981" stroke-width="3"/>
+                  <rect x="218" y="106" width="24" height="12" rx="2" fill="#fbbf24"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title">سوق دجلة للتجارة والتوصيل السريع</h3>
+              <p class="project-summary">
+                متجر إلكتروني عراقي خفيف وسريع، يدعم المحافظ الإلكترونية المحلية (زين كاش والبطاقات الذكية) مع تتبع الطلبات خطوة بخطوة وإرسال الإشعارات للعملاء وتجار الجملة في ميسان والمحافظات الجنوبية.
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill">سلة تسوق فانيلا JS</span>
+                <span class="tech-pill">تخزين محلي (LocalStorage)</span>
+                <span class="tech-pill">نظام دفع رقمي</span>
+                <span class="tech-pill">فحص وتوثيق فوري</span>
+              </div>
+
+              <div class="project-links">
+                <button class="btn-project-action" onclick="openDemoModal('سوق دجلة للتجارة والتوصيل السريع', 'متجر مصمم ليعمل بسرعة صاروخية حتى على هواتف الفئات الاقتصادية وشبكات 3G. يشمل واجهة تصفية سريعة للمنتجات، سلة مشتريات ديناميكية فورية، وحساب تلقائي لكلفة الشحن داخل محافظة ميسان والمحافظات المجاورة.')">
+                  <span>تفاصيل المشروع</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                </button>
+                <a href="#contact" class="btn-project-link">
+                  <span>طلب نظام مماثل</span>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- المشروع الثالث: نظام عمارة لإدارة العيادات والمراكز الصحية -->
+          <article class="project-card">
+            <div class="project-banner project-banner-health">
+              <div class="banner-badge">نظام طبي وإداري SaaS</div>
+              <!-- رسم توضيحي للنظام الطبي -->
+              <div class="banner-illustration">
+                <svg viewBox="0 0 400 200" fill="none" class="banner-svg">
+                  <rect x="80" y="35" width="240" height="135" rx="14" fill="#0f172a" stroke="#818cf8" stroke-width="2"/>
+                  <!-- مخطط نبض القلب وسجلات -->
+                  <path d="M100 115H130L140 85L155 140L170 95L180 115H220" stroke="#f43f5e" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                  <rect x="235" y="60" width="65" height="14" rx="4" fill="#818cf8" fill-opacity="0.4"/>
+                  <rect x="235" y="85" width="50" height="14" rx="4" fill="#818cf8" fill-opacity="0.3"/>
+                  <rect x="235" y="110" width="58" height="14" rx="4" fill="#818cf8" fill-opacity="0.2"/>
+                  <!-- هلال/صليب طبي رمزي -->
+                  <circle cx="115" cy="65" r="14" fill="#f43f5e" fill-opacity="0.2"/>
+                  <path d="M115 57V73M107 65H123" stroke="#f43f5e" stroke-width="2.5" stroke-linecap="round"/>
+                </svg>
+              </div>
+            </div>
+
+            <div class="project-content">
+              <h3 class="project-title">منظومة «عمارة كير» لإدارة العيادات</h3>
+              <p class="project-summary">
+                لوحة تحكم وتطبيق سحابي لإدارة حجوزات المرضى، السجلات الطبية الإلكترونية، والوصفات الصيدلانية لمجمعات الأطباء والعيادات التخصصية في ميسان مع دعم رسائل التذكير التلقائية.
+              </p>
+              
+              <div class="project-tech-stack">
+                <span class="tech-pill">Single Page App فانيلا</span>
+                <span class="tech-pill">تقارير بيانية وإحصائية</span>
+                <span class="tech-pill">أمان وتشفير البيانات</span>
+                <span class="tech-pill">طباعة الوصفات الذكية</span>
+              </div>
+
+              <div class="project-links">
+                <button class="btn-project-action" onclick="openDemoModal('منظومة عمارة كير لإدارة العيادات', 'نظام متكامل لتنظيم تدفق المرضى في العيادات التخصصية بمدينة العمارة. يقلل أوقات الانتظار بنسبة 60% بفضل جدول المواعيد الذكي والتنبيهات المباشرة، مع حماية تامة لخصوصية السجلات الطبية.')">
+                  <span>تفاصيل المشروع</span>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/><path d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/></svg>
+                </button>
+                <a href="#contact" class="btn-project-link">
+                  <span>طلب نظام مماثل</span>
+                </a>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم التواصل (Contact Section) -->
+    <section class="section contact-section" id="contact">
+      <div class="container">
+        <div class="section-header">
+          <span class="section-tag">تواصل معي</span>
+          <h2 class="section-title">لنبدأ عملاً مميزاً معاً</h2>
+          <p class="section-desc">هل لديك فكرة مشروع أو ترغب في تطوير موقعك الحالي؟ يسعدني دائماً تواصلك وتبادل الأفكار</p>
+          <div class="section-line"></div>
+        </div>
+
+        <div class="contact-wrapper">
+          <!-- معلومات التواصل المباشرة -->
+          <div class="contact-info-card">
+            <h3>معلومات الاتصال</h3>
+            <p>أنا متاح دائماً للرد على استفساراتكم ومناقشة المشاريع البرمجية واستشارات الويب.</p>
+
+            <div class="contact-methods">
+              <div class="contact-method-item">
+                <div class="method-icon">📍</div>
+                <div class="method-details">
+                  <span class="method-label">الموقع الجغرافي:</span>
+                  <span class="method-value">العراق، محافظة ميسان - العمارة</span>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="method-icon">✉️</div>
+                <div class="method-details">
+                  <span class="method-label">البريد الإلكتروني:</span>
+                  <a href="mailto:karrar.maysan.dev@gmail.com" class="method-value" dir="ltr">karrar.maysan.dev@gmail.com</a>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="method-icon">📱</div>
+                <div class="method-details">
+                  <span class="method-label">الهاتف والواتساب:</span>
+                  <a href="https://wa.me/9647700000000" target="_blank" rel="noopener" class="method-value" dir="ltr">+964 770 000 0000</a>
+                </div>
+              </div>
+
+              <div class="contact-method-item">
+                <div class="method-icon">🕒</div>
+                <div class="method-details">
+                  <span class="method-label">أوقات العمل:</span>
+                  <span class="method-value">السبت - الخميس: 9:00 ص - 8:00 م</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- شبكات التواصل الاجتماعي -->
+            <div class="social-links-box">
+              <h4>تابعني على المنصات التقنية:</h4>
+              <div class="social-links">
+                <a href="https://github.com" target="_blank" rel="noopener" class="social-link" aria-label="GitHub">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                </a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                </a>
+                <a href="https://twitter.com" target="_blank" rel="noopener" class="social-link" aria-label="X (Twitter)">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- نموذج إرسال الرسالة التفاعلي -->
+          <div class="contact-form-card">
+            <form id="contactForm" class="contact-form" novalidate>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="userName">الاسم الكريم <span class="required">*</span></label>
+                  <input type="text" id="userName" name="name" placeholder="مثال: أحمد عبد الله" required>
+                  <span class="field-error" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="userEmail">البريد الإلكتروني <span class="required">*</span></label>
+                  <input type="email" id="userEmail" name="email" placeholder="example@domain.com" dir="ltr" required>
+                  <span class="field-error" id="emailError"></span>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="userSubject">موضوع الرسالة <span class="required">*</span></label>
+                <input type="text" id="userSubject" name="subject" placeholder="مثال: طلب تطوير موقع تجاري أو استشارة برمجية" required>
+                <span class="field-error" id="subjectError"></span>
+              </div>
+
+              <div class="form-group">
+                <label for="userMessage">تفاصيل المشروع أو الرسالة <span class="required">*</span></label>
+                <textarea id="userMessage" name="message" rows="5" placeholder="أخبرني عن أهداف مشروعك، الموعد التقريبي، وأي تفاصيل ترغب بمشاركتها..." required></textarea>
+                <span class="field-error" id="messageError"></span>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-submit" id="submitBtn">
+                <span class="btn-text">إرسال الرسالة</span>
+                <span class="btn-spinner" aria-hidden="true"></span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+              </button>
+
+              <div class="form-feedback" id="formFeedback" role="alert"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- نافذة المعاينة المنبثقة (Modal) لتفاصيل المشاريع -->
+  <div class="modal-overlay" id="projectModal" aria-hidden="true" role="dialog" aria-labelledby="modalTitle">
+    <div class="modal-dialog">
+      <button class="modal-close-btn" id="modalCloseBtn" aria-label="إغلاق النافذة">×</button>
+      <div class="modal-body">
+        <h3 id="modalTitle" class="modal-title"></h3>
+        <p id="modalDesc" class="modal-desc"></p>
+        <div class="modal-footer">
+          <a href="#contact" class="btn btn-primary" onclick="closeModal()">مناقشة تنفيذ هذا المشروع</a>
+          <button class="btn btn-outline" onclick="closeModal()">إغلاق</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- زر الصعود إلى الأعلى -->
+  <button id="backToTop" class="back-to-top" aria-label="الرجوع إلى أعلى الصفحة" title="أعلى الصفحة">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <polyline points="18 15 12 9 6 15"></polyline>
+    </svg>
+  </button>
+
+  <!-- زر واتساب الثابت للتواصل الفوري (خاصة للموبايل) -->
+  <a href="https://wa.me/9647700000000?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D9%83%D8%B1%D9%91%D8%A7%D8%B1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1%20%D8%B9%D9%86%20%D8%AE%D8%AF%D9%85%D8%A7%D8%AA%20%D8%AA%D8%B7%D9%88%D9%8A%D8%B1%20%D8%A7%D9%84%D9%88%D9%8A%D8%A8" 
+     class="whatsapp-float" 
+     target="_blank" 
+     rel="noopener noreferrer" 
+     aria-label="تواصل عبر واتساب"
+     title="تواصل معي مباشرة عبر واتساب">
+    <svg viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 2a13.9 13.9 0 0 0-12 20.9L2 30l7.3-1.9A13.9 13.9 0 1 0 16 2zm0 25.5a11.6 11.6 0 0 1-5.9-1.6l-.4-.2-4.4 1.1 1.2-4.2-.3-.4A11.6 11.6 0 1 1 16 27.5zm6.4-8.7c-.3-.2-2-1.1-2.3-1.1-.3-.2-.5-.3-.7.1-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1a9.2 9.2 0 0 1-2.7-1.7 10.2 10.2 0 0 1-1.9-2.3c-.2-.3 0-.5.1-.7.2-.1.3-.4.5-.5.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5-.1-.2-.7-1.7-1-2.4-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4s-1.2 1.2-1.2 2.8 1.2 3.3 1.4 3.5c.2.2 2.4 3.7 5.8 5.1.8.3 1.4.5 1.9.7.8.2 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.5z"/>
+    </svg>
+    <span class="whatsapp-tooltip">تواصل عبر واتساب</span>
+  </a>
+
+  <!-- تذييل الصفحة (Footer) -->
+  <footer class="site-footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <div class="brand-logo">
+          <span class="logo-icon">🌾</span>
+          <span class="logo-text">كرّار<span class="logo-highlight">.ميسان</span></span>
+        </div>
+        <p class="footer-tagline">
+          صُنع بكل فخر وشغف في <strong>محافظة ميسان</strong>، العراق 🇮🇶
+        </p>
+      </div>
+
+      <div class="footer-links">
+        <a href="#hero">الرئيسية</a>
+        <a href="#about">نبذة</a>
+        <a href="#skills">المهارات</a>
+        <a href="#projects">المشاريع</a>
+        <a href="#contact">تواصل</a>
+      </div>
+
+      <div class="footer-copy">
+        <p>© <span id="currentYear"></span> كرّار الميساني. جميع الحقوق محفوظة.</p>
+        <p class="footer-sub">HTML5 • CSS3 • JavaScript النقي</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
